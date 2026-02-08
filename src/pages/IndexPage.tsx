@@ -146,7 +146,7 @@ export default function IndexPage({ searchParams }: IndexPageProps) {
       <SEO />
       <CommandMenu open={isCommandOpen} setOpen={setIsCommandOpen} />
 
-      <Hero setIsCommandOpen={setIsCommandOpen} totalCount={resultsCount} />
+      <Hero setIsCommandOpen={setIsCommandOpen} totalCount={resultsCount} isLoading={isLoading} />
 
       <main className="flex-1 bg-background relative">
         {/* SENTINEL */}
@@ -169,6 +169,7 @@ export default function IndexPage({ searchParams }: IndexPageProps) {
             resultsCount={resultsCount}
             viewMode={viewMode}
             setViewMode={setViewMode}
+            isLoading={isLoading}
           />
         </div>
 

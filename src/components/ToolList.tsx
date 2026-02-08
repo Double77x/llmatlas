@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import ToolCard from "@/components/ToolCard";
+import { ToolCardSkeleton, ToolListSkeleton } from "@/components/ToolCardSkeleton";
 import { Tool } from "@/lib/supabase";
 import { TOOLS_PER_PAGE } from "@/hooks/useTools";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -46,11 +47,7 @@ export function ToolList({
   if (isLoading && tools.length === 0) {
     return (
       <div className="container-main pb-20 pt-6">
-        <div className="space-y-4">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-40 bg-muted/20 animate-pulse rounded-none border border-border/50" />
-          ))}
-        </div>
+        <ToolListSkeleton count={5} />
       </div>
     );
   }
@@ -87,8 +84,17 @@ export function ToolList({
         {/* Paginated Mode Controls */}
         {viewMode === "paginated" && totalPages > 1 && (
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-border/40">
-            <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
-              Page {currentPage + 1} of {totalPages} <span className="mx-3 text-border">|</span> {totalCount} Records
+            <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1">
+              <span>Page {currentPage + 1} of {totalPages}</span>
+              <span className="mx-3 text-border">|</span> 
+              <span className="inline-flex items-center justify-center min-w-[2ch]">
+                {isLoading ? (
+                  <span className="w-4 h-3 bg-muted animate-pulse" />
+                ) : (
+                  totalCount
+                )}
+              </span>
+              <span>Records</span>
             </div>
             
             <div className="flex gap-2">
@@ -116,12 +122,9 @@ export function ToolList({
 
         {/* Continuous Mode Loader */}
         {viewMode === "continuous" && (hasNextPage || isFetchingNextPage) && (
-          <div ref={ref} className="py-12 flex flex-col items-center gap-4">
+          <div ref={ref} className="py-12">
             {isFetchingNextPage ? (
-              <div className="flex flex-col items-center gap-2">
-                <div className="h-6 w-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                <span className="text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest">Loading Records...</span>
-              </div>
+              <ToolListSkeleton count={2} />
             ) : (
               <div className="h-1 w-full bg-border/20" />
             )}

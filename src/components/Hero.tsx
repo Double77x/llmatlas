@@ -6,9 +6,10 @@ import { SubmitToolDialog } from "./SubmitToolDialog";
 interface HeroProps {
   setIsCommandOpen: (open: boolean) => void;
   totalCount: number;
+  isLoading?: boolean;
 }
 
-export function Hero({ setIsCommandOpen, totalCount }: HeroProps) {
+export function Hero({ setIsCommandOpen, totalCount, isLoading }: HeroProps) {
   const { setTheme, resolvedTheme } = useTheme();
 
   return (
@@ -28,7 +29,16 @@ export function Hero({ setIsCommandOpen, totalCount }: HeroProps) {
             <span className="flex items-center gap-2">
               <span className="text-primary font-black">LIVE</span>
               <span className="text-border">/</span>
-              <span>{totalCount} TOOLS INDEXED</span>
+              <span className="flex items-center gap-1.5">
+                <span className="inline-flex items-center justify-center min-w-[2ch]">
+                  {isLoading ? (
+                    <span className="w-4 h-3 bg-muted animate-pulse" />
+                  ) : (
+                    totalCount
+                  )}
+                </span>
+                <span>TOOLS INDEXED</span>
+              </span>
             </span>
           </div>
 

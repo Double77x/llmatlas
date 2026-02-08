@@ -23,6 +23,7 @@ interface FilterBarProps {
   resultsCount: number;
   viewMode: "paginated" | "continuous";
   setViewMode: (mode: "paginated" | "continuous") => void;
+  isLoading?: boolean;
 }
 
 import { Rows, Infinity as InfinityIcon } from "lucide-react";
@@ -43,6 +44,7 @@ export function FilterBar({
   resultsCount,
   viewMode,
   setViewMode,
+  isLoading,
 }: FilterBarProps) {
   const types = ["All", ...TOOL_TYPES];
   const pricingOptions = ["All", ...PRICING_MODELS];
@@ -179,8 +181,15 @@ export function FilterBar({
 
             <div className="h-5 w-px bg-border mx-2 hidden lg:block"></div>
 
-            <div className="text-[11px] font-mono text-foreground uppercase tracking-widest font-black whitespace-nowrap">
-              {resultsCount} TOOLS
+            <div className="text-[11px] font-mono text-foreground uppercase tracking-widest font-black whitespace-nowrap min-w-[80px] flex items-center gap-1.5">
+              <span className="inline-flex items-center justify-center min-w-[2ch]">
+                {isLoading ? (
+                  <span className="w-4 h-3 bg-muted animate-pulse" />
+                ) : (
+                  resultsCount
+                )}
+              </span>
+              <span>TOOLS</span>
             </div>
           </div>
         </div>
