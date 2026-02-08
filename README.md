@@ -15,22 +15,22 @@ LLM Atlas is a community-driven directory designed to track the evolution of mac
 
 ## KEY FEATURES
 
-▪ **Idempotent Voting**: Real-time, authenticated voting system to rank the most effective tools.
-▪ **Deep-Linked Filtering**: Advanced filtering by platform (IDE, CLI, Web, API), pricing model, and license status.
-▪ **Performance-First**: Optimized with server-side pagination, continuous scroll, and aggressive asset caching.
-▪ **Brutalist Aesthetic**: A high-contrast, technical UI designed for developers and power users.
-▪ **Secure Architecture**: Hardened Supabase backend with Row Level Security (RLS) and strict Content Security Policies.
-▪ **LLM-Friendly**: Includes a machine-optimized `llms.txt` index for easy parsing by AI agents.
+- **Idempotent Voting**: Real-time, authenticated voting system to rank the most effective tools.
+- **Deep-Linked Filtering**: Advanced filtering by platform (IDE, CLI, Web, API), pricing model, and license status.
+- **Performance-First**: Optimized with server-side pagination, continuous scroll, and aggressive asset caching.
+- **Brutalist Aesthetic**: A high-contrast, technical UI designed for developers and power users.
+- **Secure Architecture**: Hardened Supabase backend with Row Level Security (RLS) and strict Content Security Policies.
+- **LLM-Friendly**: Includes a machine-optimized `llms.txt` index for easy parsing by AI agents.
 
 ## TECH STACK
 
-▪ **Frontend**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
-▪ **Routing**: [TanStack Router](https://tanstack.com/router)
-▪ **Data Fetching**: [TanStack Query](https://tanstack.com/query)
-▪ **Backend**: [Supabase](https://supabase.com/) (PostgreSQL + RLS)
-▪ **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-▪ **Validation**: [Zod](https://zod.dev/)
-▪ **Icons**: [Lucide React](https://lucide.dev/)
+- **Frontend**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Routing**: [TanStack Router](https://tanstack.com/router)
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query)
+- **Backend**: [Supabase](https://supabase.com/) (PostgreSQL + RLS)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Validation**: [Zod](https://zod.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
 ## GETTING STARTED
 
@@ -42,24 +42,28 @@ LLM Atlas is a community-driven directory designed to track the evolution of mac
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/llm-atlas.git
    cd llm-atlas
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```
 
 3. **Environment Setup**
    Create a `.env` file in the root:
+
    ```env
    VITE_SUPABASE_URL=your_supabase_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
 4. **Start Development**
+
    ```bash
    pnpm dev
    ```
@@ -83,9 +87,9 @@ src/
 
 ## SECURITY & SCALABILITY
 
-▪ **Database**: Indexed for O(log N) sorting on `vote_count` and `created_at`.
-▪ **Harden**: Strict CSP, HSTS, and Frame-protection headers implemented.
-▪ **Privacy**: Anonymous Auth ensures unique voting without personal data collection.
+- **Database**: Indexed for O(log N) sorting on `vote_count` and `created_at`.
+- **Harden**: Strict CSP, HSTS, and Frame-protection headers implemented.
+- **Privacy**: Anonymous Auth ensures unique voting without personal data collection.
 
 ## CONTRIBUTING
 
