@@ -1,0 +1,8 @@
+/* TEAM */
+    Developer: LLM Atlas Team
+    Twitter: @llmatlas
+    Site: https://llmatlas.pages.dev
+
+/* SITE */
+    Last update: 2026/02/08
+    Standards: HTML5, CSS3, React, TypeScript

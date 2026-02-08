@@ -1,0 +1,19 @@
+# LLM ATLAS
+
+Registry of agentic coding toolchains. Ranked by the community, verified for the machine era.
+
+## Summary
+LLM Atlas is a curated, filterable directory of autonomous coding tools, IDEs, and APIs. It allows users to browse, search, and vote on toolchains designed for the agentic coding era.
+
+## Core Purpose
+To provide a decentralized, community-driven index of high-quality tools that facilitate AI-driven software engineering.
+
+## Key Metadata
+- **URL**: https://llmatlas.pages.dev
+- **Categories**: IDE, CLI, Web, API
+- **Pricing**: Free, Freemium, Paid
+- **License**: Open Source, Closed Source
+- **Main Features**: Idempotent voting, real-time search, deep-linked filtering, tool submission portal.
+
+## Contributing
+Users can submit new tools via the "SUBMIT TOOL" portal. Suggestions are peer-reviewed and promoted to the main registry after validation.

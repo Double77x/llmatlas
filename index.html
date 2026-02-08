@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+  <title>LLM ATLAS | Agentic Coding Toolchain Registry</title>
+  <meta name="description" content="The definitive registry for the agentic coding era. Explore, vote, and submit autonomous toolchains, IDEs, and CLI agents." />
+  <meta name="keywords" content="LLM, AI Agents, Coding Tools, Agentic Workflows, AI Directory, Developer Tools" />
+  <meta name="author" content="LLM Atlas" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://llmatlas.pages.dev/" />
+  <meta property="og:title" content="LLM ATLAS | Agentic Coding Toolchain Registry" />
+  <meta property="og:description" content="The definitive registry for the agentic coding era. Explore, vote, and submit autonomous toolchains, IDEs, and CLI agents." />
+  <meta property="og:image" content="/logo.svg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://llmatlas.pages.dev/" />
+  <meta property="twitter:title" content="LLM ATLAS | Agentic Coding Toolchain Registry" />
+  <meta property="twitter:description" content="The definitive registry for the agentic coding era. Explore, vote, and submit autonomous toolchains, IDEs, and CLI agents." />
+  <meta property="twitter:image" content="/logo.svg" />
+
+  <!-- Theme & Favicons -->
+  <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#303446" media="(prefers-color-scheme: dark)" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="canonical" href="https://llmatlas.pages.dev/" />
+
+  <!-- Font Preloading -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="/fonts/spacemono-400-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="/fonts/spacemono-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LLM Atlas",
+      "url": "https://llmatlas.pages.dev/",
+      "description": "Registry of agentic coding toolchains. Ranked by the community, verified for the machine era.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://llmatlas.pages.dev/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
+  <script>
+    (function () {
+      var storageKey = 'theme';
+      var className = 'dark';
+      var dark = localStorage.getItem(storageKey);
+      var system = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark === 'dark' || (!dark && system) || (dark === 'system' && system)) {
+        document.documentElement.classList.add(className);
+      }
+    })();
+  </script>
+</head>
+
+<body class="bg-background text-foreground antialiased min-h-screen">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
