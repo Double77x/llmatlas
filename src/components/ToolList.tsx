@@ -95,6 +95,7 @@ export function ToolList({
               <button
                 disabled={currentPage === 0}
                 onClick={() => handlePageChange(currentPage - 1)}
+                aria-label="Previous Page"
                 className="flex items-center gap-2 px-4 h-10 border-2 border-border hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:hover:border-border disabled:hover:text-muted-foreground disabled:cursor-not-allowed text-[10px] font-mono font-bold uppercase tracking-widest"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -103,6 +104,7 @@ export function ToolList({
               <button
                 disabled={currentPage >= totalPages - 1}
                 onClick={() => handlePageChange(currentPage + 1)}
+                aria-label="Next Page"
                 className="flex items-center gap-2 px-4 h-10 border-2 border-border hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:hover:border-border disabled:hover:text-muted-foreground disabled:cursor-not-allowed text-[10px] font-mono font-bold uppercase tracking-widest"
               >
                 NEXT

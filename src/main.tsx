@@ -3,7 +3,6 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { routeTree } from './routeTree.gen';
-import './index.css'
 
 // Create a client
 const queryClient = new QueryClient();

@@ -268,16 +268,17 @@ export function SubmitToolDialog() {
                     ) : (
                       <div className="flex flex-col gap-0.5 p-1">
                         {filteredTags.map((tag) => (
-                          <div
+                          <button
                             key={tag}
+                            type="button"
                             onClick={() => toggleTag(tag)}
                             className={cn(
-                              "relative flex cursor-pointer select-none items-center justify-between px-3 py-2 text-[11px] font-mono font-bold uppercase transition-colors hover:bg-primary/10",
+                              "relative flex cursor-pointer select-none items-center justify-between px-3 py-2 text-[11px] font-mono font-bold uppercase transition-colors hover:bg-primary/10 w-full text-left",
                               selectedTags.includes(tag) ? "bg-primary/5 text-primary" : "text-foreground",
                             )}>
                             {tag}
                             {selectedTags.includes(tag) && <Check className="h-3 w-3 text-primary" />}
-                          </div>
+                          </button>
                         ))}
                       </div>
                     )}
