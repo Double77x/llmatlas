@@ -66,9 +66,11 @@ export function FilterBar({
             "flex flex-col lg:flex-row gap-3 items-center justify-between w-full",
             isStuck ? "max-w-[1400px] mx-auto" : "",
           )}>
-          <div className="relative flex-1 w-full max-w-md">
+            <div className="relative flex-1 w-full max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/50" />
             <Input
+              id="search-input"
+              name="search"
               placeholder="QUERY THE ATLAS..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
