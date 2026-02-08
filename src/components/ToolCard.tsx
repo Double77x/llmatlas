@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Github, Lock, Unlock, Share2 } from "lucide-react";
+import { ExternalLink, Github, Lock, Unlock, Share2, ChevronUp } from "lucide-react";
 import { Tool } from "@/lib/supabase";
 import { useVote } from "@/hooks/useVote";
 import { formatNumber } from "@/lib/utils";
@@ -55,11 +55,9 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
       { toolId: tool.id },
       {
         onSettled: () => {
-          // Keep button disabled for 500ms after request finishes for UX
           setTimeout(() => setIsProcessing(false), 500);
         },
         onError: () => {
-          // Revert on error
           if (hasVoted) {
             setVotes((prev) => prev + 1);
             setHasVoted(true);
@@ -75,7 +73,7 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
   const handleShare = () => {
     const url = new URL(window.location.href);
     url.searchParams.set("search", tool.name);
-    url.searchParams.delete("page"); // Clean up page param for sharing
+    url.searchParams.delete("page");
     navigator.clipboard.writeText(url.toString());
     toast.success("Deep link copied to clipboard!");
   };
@@ -95,13 +93,12 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
   }, [showMinusOne]);
 
   return (
-    <div 
+    <div
       className={`p-4 md:p-6 transition-all group bg-card text-card-foreground border shadow-sm flex flex-row gap-4 md:gap-6 items-start ${
-        isHighlighted 
-          ? "border-primary/50 bg-primary/5 ring-1 ring-primary/20 shadow-[0_0_30px_-10px_rgba(255,129,99,0.3)]" 
+        isHighlighted
+          ? "border-primary/50 bg-primary/5 ring-1 ring-primary/20 shadow-[0_0_30px_-10px_rgba(255,129,99,0.3)]"
           : "border-border hover:bg-accent/30"
-      }`}
-    >
+      }`}>
       {/* Middle: Content */}
       <div className="flex-1 space-y-3 min-w-0">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -111,7 +108,6 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
 
           {/* Metadata Badges Group */}
           <div className="flex flex-wrap gap-2 items-center">
-            {/* Type Badges */}
             {tool.types.map((type) => (
               <span
                 key={type}
@@ -120,7 +116,6 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
               </span>
             ))}
 
-            {/* Pricing Badge */}
             {tool.pricing && (
               <span
                 className={`text-[10px] font-mono font-bold uppercase tracking-widest px-1.5 py-0.5 border ${
@@ -134,7 +129,6 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
               </span>
             )}
 
-            {/* License Badge */}
             <span
               className={`text-[10px] font-mono font-bold uppercase tracking-widest px-1.5 py-0.5 border flex items-center gap-1 ${
                 isOpenSource
@@ -158,7 +152,6 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
           {tool.description}
         </p>
 
-        {/* Tags Row */}
         {tool.tags && tool.tags.length > 0 && (
           <div className="flex flex-wrap gap-x-4 gap-y-2 pt-1">
             {tool.tags.map((tag) => (
@@ -196,15 +189,14 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
           <button
             onClick={handleShare}
             aria-label={`Copy share link for ${tool.name}`}
-            className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all cursor-pointer"
-          >
+            className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all cursor-pointer">
             SHARE <Share2 className="h-3 w-3" />
           </button>
         </div>
       </div>
 
       {/* Right: Vote Button */}
-      <div className="flex flex-col items-center justify-start min-w-16 md:min-w-20 relative">
+      <div className="flex flex-col items-center justify-center self-center min-w-16 md:min-w-20 relative">
         {showPlusOne && (
           <div
             className="absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 text-primary font-mono font-black text-xl md:text-2xl pointer-events-none select-none animate-in fade-out zoom-in-150 duration-1000 fill-mode-forwards"
@@ -237,12 +229,20 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
                     ? "bg-primary/5 border-primary text-primary shadow-[4px_4px_0px_0px_rgba(255,129,99,0.3)] -translate-x-0.5 -translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(255,129,99,0.4)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-none active:translate-x-0 active:translate-y-0"
                     : "border-border hover:border-primary/60 hover:bg-primary/5 text-muted-foreground hover:text-primary hover:shadow-[6px_6px_0px_0px_rgba(255,129,99,0.3)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-none active:translate-x-0 active:translate-y-0"
                 } ${isPending ? "opacity-70 cursor-wait" : ""}`}>
+                {/* CONDITIONAL CHEVRON:
+                   Only shows if NOT voted. 
+                   Moves up on hover to encourage action.
+                */}
+                {!hasVoted && (
+                  <ChevronUp className="w-5 h-5 md:w-6 md:h-6 -mb-1 transition-transform duration-300 group-hover/vote:-translate-y-1" />
+                )}
+
                 <span
                   className={`text-xl md:text-2xl font-mono font-black leading-none tracking-tighter transition-colors ${hasVoted ? "text-primary" : "text-foreground"}`}>
                   {formatNumber(votes)}
                 </span>
                 <span
-                  className={`text-[8px] md:text-[9px] font-mono font-bold uppercase tracking-[0.2em] mt-1 md:mt-1.5 transition-colors ${hasVoted ? "text-primary/70" : "text-muted-foreground/50"}`}>
+                  className={`text-[8px] md:text-[9px] font-mono font-bold uppercase tracking-[0.2em] mt-0.5 transition-colors ${hasVoted ? "text-primary/70" : "text-muted-foreground/50"}`}>
                   VOTES
                 </span>
               </button>
