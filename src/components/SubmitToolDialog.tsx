@@ -125,7 +125,7 @@ export function SubmitToolDialog() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name" className="font-mono font-bold uppercase tracking-widest text-[11px]">
-                  Tool Name
+                  Tool Name <span className="text-primary">*</span>
                 </Label>
                 <Input
                   id="name"
@@ -139,7 +139,7 @@ export function SubmitToolDialog() {
 
               <div className="space-y-2">
                 <Label htmlFor="url" className="font-mono font-bold uppercase tracking-widest text-[11px]">
-                  Website URL
+                  Website URL <span className="text-primary">*</span>
                 </Label>
                 <Input
                   id="url"
@@ -171,7 +171,7 @@ export function SubmitToolDialog() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="pricing" className="font-mono font-bold uppercase tracking-widest text-[11px]">
-                  Pricing Model
+                  Pricing Model <span className="text-primary">*</span>
                 </Label>
                 <Select value={pricing} onValueChange={setPricing} name="pricing">
                   <SelectTrigger id="pricing" className="rounded-none border-2 border-input text-sm">
@@ -192,7 +192,9 @@ export function SubmitToolDialog() {
               </div>
 
               <div className="space-y-2">
-                <Label className="font-mono font-bold uppercase tracking-widest text-[11px]">Categories (Min 1)</Label>
+                <Label className="font-mono font-bold uppercase tracking-widest text-[11px]">
+                  Categories <span className="text-primary">*</span> (Min 1)
+                </Label>
                 <div className="flex flex-wrap gap-2">
                   {TOOL_TYPES.map((type) => (
                     <button
@@ -214,7 +216,7 @@ export function SubmitToolDialog() {
 
           <div className="space-y-2">
             <Label htmlFor="description" className="font-mono font-bold uppercase tracking-widest text-[11px]">
-              Description
+              Description <span className="text-primary">*</span>
             </Label>
             <Textarea
               id="description"
