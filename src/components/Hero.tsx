@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export function Hero({ setIsCommandOpen, totalCount }: HeroProps) {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <header className="relative border-b border-border bg-background pt-12 pb-24 overflow-hidden">
@@ -54,11 +54,11 @@ export function Hero({ setIsCommandOpen, totalCount }: HeroProps) {
 
             {/* Theme Toggle Button */}
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
               className="flex items-center justify-center w-10 h-10 bg-background border border-border hover:border-primary/40 hover:bg-primary/5 transition-all shadow-[4px_4px_0px_0px_rgba(61,54,55,0.1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.02)] active:translate-x-px active:translate-y-px active:shadow-none group text-muted-foreground hover:text-foreground"
-              aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+              aria-label={resolvedTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
             >
-              {theme === "dark" ? (
+              {resolvedTheme === "dark" ? (
                 <Sun className="h-4 w-4" />
               ) : (
                 <Moon className="h-4 w-4" />
