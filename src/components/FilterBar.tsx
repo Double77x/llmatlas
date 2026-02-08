@@ -88,6 +88,7 @@ export function FilterBar({
                   viewMode === "paginated" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
                 )}
                 title="Paginated View"
+                aria-label="Switch to Paginated View"
               >
                 <Rows className="h-3.5 w-3.5" />
               </button>
@@ -98,6 +99,7 @@ export function FilterBar({
                   viewMode === "continuous" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
                 )}
                 title="Continuous Scroll"
+                aria-label="Switch to Continuous Scroll"
               >
                 <InfinityIcon className="h-3.5 w-3.5" />
               </button>

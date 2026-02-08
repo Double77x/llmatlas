@@ -291,13 +291,17 @@ export function SubmitToolDialog() {
                       variant="secondary"
                       className="rounded-none font-mono text-[10px] uppercase px-1.5 py-0.5 bg-foreground text-background hover:bg-foreground flex items-center gap-1">
                       {tag}
-                      <X
-                        className="h-2.5 w-2.5 cursor-pointer"
+                      <button
+                        type="button"
+                        aria-label={`Remove tag ${tag}`}
+                        className="p-0.5 hover:bg-white/20 transition-colors"
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleTag(tag);
                         }}
-                      />
+                      >
+                        <X className="h-2.5 w-2.5" />
+                      </button>
                     </Badge>
                   ))}
                 </div>

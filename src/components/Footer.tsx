@@ -24,10 +24,22 @@ const Footer = () => {
               evolving.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 border-2 border-border hover:border-primary hover:text-primary transition-all">
+              <a 
+                href="https://github.com/double77x/llmatlas" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 border-2 border-border hover:border-primary hover:text-primary transition-all"
+                aria-label="LLM Atlas GitHub Repository"
+              >
                 <Github className="h-4 w-4" />
               </a>
-              <a href="#" className="p-2 border-2 border-border hover:border-primary hover:text-primary transition-all">
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 border-2 border-border hover:border-primary hover:text-primary transition-all"
+                aria-label="LLM Atlas Twitter Profile"
+              >
                 <Twitter className="h-4 w-4" />
               </a>
             </div>
@@ -36,7 +48,7 @@ const Footer = () => {
           {/* Links Columns */}
           <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h4 className="font-black text-foreground border-b-2 border-primary w-fit pb-1 mb-6">Directory</h4>
+              <h3 className="font-black text-foreground border-b-2 border-primary w-fit pb-1 mb-6">Directory</h3>
               <ul className="space-y-3">
                 <li>
                   <Link
@@ -69,7 +81,7 @@ const Footer = () => {
             </div>
 
             <div className="space-y-4">
-              <h4 className="font-black text-foreground border-b-2 border-primary w-fit pb-1 mb-6">Legal</h4>
+              <h3 className="font-black text-foreground border-b-2 border-primary w-fit pb-1 mb-6">Legal</h3>
               <ul className="space-y-3">
                 <li>
                   <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">

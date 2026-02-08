@@ -105,9 +105,9 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
       {/* Middle: Content */}
       <div className="flex-1 space-y-3 min-w-0">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <h3 className="text-lg md:text-2xl font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-none mr-2">
+          <h2 className="text-lg md:text-2xl font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-none mr-2">
             {tool.name}
-          </h3>
+          </h2>
 
           {/* Metadata Badges Group */}
           <div className="flex flex-wrap gap-2 items-center">
@@ -178,6 +178,7 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Visit ${tool.name} website`}
               className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all">
               VISIT <ExternalLink className="h-3 w-3" />
             </a>
@@ -187,12 +188,14 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
               href={tool.github}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View ${tool.name} source code on GitHub`}
               className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all">
               SOURCE <Github className="h-3 w-3" />
             </a>
           )}
           <button
             onClick={handleShare}
+            aria-label={`Copy share link for ${tool.name}`}
             className="text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-all cursor-pointer"
           >
             SHARE <Share2 className="h-3 w-3" />
@@ -228,6 +231,7 @@ const ToolCard = ({ tool, initialHasVoted, isHighlighted }: ToolCardProps) => {
               <button
                 onClick={toggleVote}
                 disabled={isPending}
+                aria-label={hasVoted ? `Remove vote for ${tool.name}` : `Vote for ${tool.name}`}
                 className={`flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 border-2 transition-all duration-200 group/vote active:scale-95 ${
                   hasVoted
                     ? "bg-primary/5 border-primary text-primary shadow-[4px_4px_0px_0px_rgba(255,129,99,0.3)] -translate-x-0.5 -translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(255,129,99,0.4)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-none active:translate-x-0 active:translate-y-0"

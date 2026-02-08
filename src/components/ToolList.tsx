@@ -74,7 +74,7 @@ export function ToolList({
           ))
         ) : (
           <div className="p-20 text-center bg-card border border-border border-dashed shadow-sm">
-            <h3 className="text-lg font-mono font-bold uppercase tracking-tight">No Records Found</h3>
+            <h2 className="text-lg font-mono font-bold uppercase tracking-tight">No Records Found</h2>
             <p className="text-muted-foreground mt-2 text-sm font-sans">Adjust filters to broaden your search.</p>
             <button
               onClick={onReset}
